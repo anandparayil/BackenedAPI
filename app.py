@@ -2,16 +2,24 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 import os
+import gdown
+import joblib
 
 app = Flask(__name__)
 
-MODEL_PATH = r"C:\Users\ANAND\Downloads\disease_model.pkl"
+MODEL_URL = "https://drive.google.com/file/d/1--3ORXu68J6Vb9BL1bskE8KZygxv6hwO/view?usp=sharing"  
+
+MODEL_PATH = "disease_model.pkl"
+
+if not os.path.exists(MODEL_PATH): 
+    print("Downloading model...")
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
 try:
     model = joblib.load(MODEL_PATH)
-    print("Model Loaded Successfully!")
+    print("✅ Model Loaded Successfully!")
 except Exception as e:
-    print(f"Error loading model: {e}")
+    print(f"❌ Error loading model: {e}")
     model = None
 
 SYMPTOMS_LIST = [
