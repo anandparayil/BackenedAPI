@@ -7,8 +7,7 @@ import joblib
 
 app = Flask(__name__)
 
-MODEL_URL = "https://drive.google.com/file/d/1--3ORXu68J6Vb9BL1bskE8KZygxv6hwO/view?usp=sharing"  
-
+MODEL_URL = "https://drive.google.com/uc?id=1--3ORXu68J6Vb9BL1bskE8KZygxv6hwO"
 MODEL_PATH = "disease_model.pkl"
 
 if not os.path.exists(MODEL_PATH): 
