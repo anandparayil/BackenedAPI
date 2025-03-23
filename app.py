@@ -4,7 +4,6 @@ import numpy as np
 import os
 import gdown
 import joblib
-import sklearn
 
 app = Flask(__name__)
 
